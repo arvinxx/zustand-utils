@@ -1,3 +1,1 @@
-export const hello = () => {
-  return 'world';
-};
+export * from './context';
