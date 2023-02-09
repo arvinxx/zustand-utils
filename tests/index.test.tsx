@@ -156,6 +156,40 @@ it('throws error when not using provider', async () => {
   await findByText('errored');
 });
 
+it('throws error useStoreApi when not using provider', async () => {
+  console.error = jest.fn();
+
+  class ErrorBoundary extends ClassComponent<
+    { children?: ReactNode | undefined },
+    { hasError: boolean }
+  > {
+    constructor(props: { children?: ReactNode | undefined }) {
+      super(props);
+      this.state = { hasError: false };
+    }
+    static getDerivedStateFromError() {
+      return { hasError: true };
+    }
+    render() {
+      return this.state.hasError ? <div>errored</div> : this.props.children;
+    }
+  }
+
+  const { useStoreApi } = createContext<StoreApi<CounterState>>();
+  function Component() {
+    useStoreApi();
+    return <div>no error</div>;
+  }
+
+  const { findByText } = render(
+    <StrictMode>
+      <ErrorBoundary>
+        <Component />
+      </ErrorBoundary>
+    </StrictMode>,
+  );
+  await findByText('errored');
+});
 const expectAreTypesEqual = <A, B>() => ({
   toBe: (
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
