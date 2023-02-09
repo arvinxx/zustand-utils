@@ -25,7 +25,7 @@
   "scripts": {
     "build": "father build",
     "build:watch": "father dev",
-    "ci": "npm run lint && npm run type-check",
+    "ci": "npm run lint && npm run type-check && npm run doctor",
     "clean": "rm -rf es lib dist coverage .dumi/tmp .eslintcache",
     "dev": "dumi dev",
     "docs:build": "dumi build",
@@ -54,6 +54,9 @@
       "eslint --fix",
       "prettier --parser=typescript --write"
     ]
+  },
+  "dependencies": {
+    "@babel/runtime": "^7"
   },
   "devDependencies": {
     "@commitlint/cli": "^17",
@@ -93,6 +96,7 @@
     "zustand": "^4"
   },
   "peerDependencies": {
+    "react": ">=16.8",
     "zustand": ">=4"
   },
   "publishConfig": {
