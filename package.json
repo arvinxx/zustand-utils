@@ -1,6 +1,6 @@
 {
   "name": "zustand-utils",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "some utils for zustand",
   "keywords": [
     "zustand"
