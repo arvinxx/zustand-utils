@@ -1,27 +1,25 @@
 {
-  "name": "@arvinxu/npm-template",
-  "version": "1.4.0",
-  "description": "a npm develop template",
+  "name": "zustand-utils",
+  "version": "0.0.0",
+  "description": "some utils for zustand",
   "keywords": [
-    "npm",
-    "template"
+    "zustand"
   ],
-  "homepage": "https://github.com/arvinxx/npm-template",
+  "homepage": "https://github.com/arvinxx/zustand-utils",
   "bugs": {
-    "url": "https://github.com/arvinxx/npm-template/issues/new"
+    "url": "https://github.com/arvinxx/zustand-utils/issues/new"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arvinxx/npm-template.git"
+    "url": "https://github.com/arvinxx/zustand-utils.git"
   },
   "license": "MIT",
   "author": "arvinxx(arvinx@foxmail.com)",
   "sideEffects": false,
-  "main": "lib/index.js",
+  "main": "es/index.js",
   "module": "es/index.js",
-  "types": "lib/index.d.ts",
+  "types": "es/index.d.ts",
   "files": [
-    "lib",
     "es"
   ],
   "scripts": {
@@ -91,7 +89,11 @@
     "stylelint": "^14",
     "ts-jest": "^29",
     "ts-node": "^10",
-    "typescript": "^4"
+    "typescript": "^4",
+    "zustand": "^4"
+  },
+  "peerDependencies": {
+    "zustand": ">=4"
   },
   "publishConfig": {
     "access": "public",

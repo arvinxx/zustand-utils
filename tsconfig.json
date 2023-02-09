@@ -10,8 +10,8 @@
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "@/*": ["src"],
-      "@arvinxu/npm-template": ["src"],
-      "@arvinxu/npm-template/*": ["src/*", "*"]
+      "zustand-utils": ["src"],
+      "zustand-utils/*": ["src/*", "*"]
     }
   }
 }

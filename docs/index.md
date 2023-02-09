@@ -1,7 +1,7 @@
 ---
 hero:
-  title: @arvinxu/npm-template
-  description: a npm develop template
+  title: zustand-utils
+  description: some utils for zustand
   actions:
     - text: 快速上手
       link: /guide
