@@ -67,7 +67,9 @@ const Component = () => {
 
 ## Usage
 
-### createContext usage in real components
+### createContext
+
+#### createContext usage in real components
 
 > Migration from [zustand-v3-create-context.md](https://github.com/pmndrs/zustand/blob/b857d5e79f41e2e2c756448eca466ac31abdabc3/docs/previous-versions/zustand-v3-create-context.md)
 
