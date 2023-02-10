@@ -1,4 +1,4 @@
-<img src="https://gw.alipayobjects.com/zos/antfincdn/R8sN%24GNdh6/language.svg" width="18"> English | [简体中文](./README.zh-CN.md)
+<img src="https://gw.alipayobjects.com/zos/antfincdn/R8sN%24GNdh6/language.svg" width="18"> [English](./README.md) | 简体中文
 
 # zustand-utils
 
@@ -39,13 +39,13 @@
 [download-image]: https://img.shields.io/npm/dm/zustand-utils.svg?style=flat-square
 [download-url]: https://npmjs.org/package/zustand-utils
 
-## Introduction
+## 简介
 
-Some utils for zustand
+一些 zustand 的工具函数
 
 ### createContext
 
-A replacement createContext from zustand/context that is deprecated in v4 and will be removed in v5. (Discussion: [#1276](https://github.com/pmndrs/zustand/discussions/1276))
+zustand v4 中废弃的 `createContext` 的替代方法。（详情： [#1276](https://github.com/pmndrs/zustand/discussions/1276)）
 
 ```tsx
 import create from 'zustand'
@@ -67,32 +67,31 @@ const Component = () => {
   ...
 ```
 
-## Usage
+## 典型用例
 
 ### createContext
 
-#### createContext usage in real components
+#### createContext 在组件中的用法
 
-> Migration from [zustand-v3-create-context.md](https://github.com/pmndrs/zustand/blob/b857d5e79f41e2e2c756448eca466ac31abdabc3/docs/previous-versions/zustand-v3-create-context.md)
+> 出处： [zustand-v3-create-context.md](https://github.com/pmndrs/zustand/blob/b857d5e79f41e2e2c756448eca466ac31abdabc3/docs/previous-versions/zustand-v3-create-context.md)
 
 ```jsx
-import create from "zustand";
-import createContext from "zustand/context";
+import create from 'zustand';
+import createContext from 'zustand/context';
 
-// Best practice: You can move the below createContext() and createStore to a separate file(store.js) and import the Provider, useStore here/wherever you need.
-
+// 最佳实践：你可以将下面的 createContext() 和 createStore 移动到一个单独的文件（store.js）中，并在需要的地方导入 Provider，useStore。
 const { Provider, useStore } = createContext();
 
 const createStore = () =>
   create((set) => ({
     bears: 0,
     increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-    removeAllBears: () => set({ bears: 0 })
+    removeAllBears: () => set({ bears: 0 }),
   }));
 
 const Button = () => {
   return (
-      {/** store() - This will create a store for each time using the Button component instead of using one store for all components **/}
+    // 每次使用 Button 组件都会创建自己的 store 实例，而不是所有组件使用同一个 store。
     <Provider createStore={createStore}>
       <ButtonChild />
     </Provider>
@@ -125,9 +124,9 @@ export default function App() {
 }
 ```
 
-#### createContext usage with initialization from props
+#### createContext 的初始化 props 用法
 
-> Migration from [zustand-v3-create-context.md](https://github.com/pmndrs/zustand/blob/b857d5e79f41e2e2c756448eca466ac31abdabc3/docs/previous-versions/zustand-v3-create-context.md)
+> 出处： [zustand-v3-create-context.md](https://github.com/pmndrs/zustand/blob/b857d5e79f41e2e2c756448eca466ac31abdabc3/docs/previous-versions/zustand-v3-create-context.md)
 
 ```tsx
 import create from 'zustand';
@@ -151,11 +150,11 @@ export default function App({ initialBears }) {
 }
 ```
 
-#### Refactor app store to a component store with createContext
+#### 使用 createContext 将应用转化为组件
 
-a most usage of createContext is refactoring an app to a component. Here's progress:
+`createContext` 最常见的用法是将应用程序重构为组件，步骤如下：
 
-1. Create an App without context :
+1. 创建一个没有 context 的 App store：
 
 ```ts
 // store.ts
@@ -168,7 +167,7 @@ export const useStore = create((set) => ({
 }));
 ```
 
-components in app use `useStore` to consume store:
+应用中的组件使用 `useStore` 来消费 store：
 
 ```tsx
 // Component.ts
@@ -193,7 +192,7 @@ const ButtonChild = () => {
 export default ButtonChild;
 ```
 
-2. Just wrapper the App with `createContext`, and don't need to refactor any code in children components.
+2. 只需要将 App 包裹在 `createContext` 中，不需要重构任何子组件中的代码，就可以将应用转为组件：
 
 ```diff
 // store.ts
@@ -225,7 +224,7 @@ const Wrapper = () => {
 };
 ```
 
-It become a component, can be used in any other app.
+这样它就变成了一个组件，可以被其他任何应用消费。
 
 ## License
 
