@@ -151,9 +151,7 @@ export default function App({ initialBears }) {
 
 #### Refactor app store to a component store with createContext
 
-a most usage of createContext is refactoring an app to a component.
-
-Here's progress:
+a most usage of createContext is refactoring an app to a component. Here's progress:
 
 1. Create an App without context :
 
@@ -193,9 +191,7 @@ const ButtonChild = () => {
 export default ButtonChild;
 ```
 
-2. Oneday, the app needs to be converted to a component(like [react-flow](https://reactflow.dev/)) to reuse in another app.
-
-with `createContext`, what needs to do is just wrapper the App with `createContext`, and don't need to refactor any code in children components.
+2. Just wrapper the App with `createContext`, and don't need to refactor any code in children components.
 
 It become a component, can be used in any other app.
 
