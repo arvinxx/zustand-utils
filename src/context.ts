@@ -1,11 +1,5 @@
 import type { ReactNode } from 'react';
-import {
-  createContext as reactCreateContext,
-  createElement,
-  useContext,
-  useMemo,
-  useRef,
-} from 'react';
+import { createContext as reactCreateContext, createElement, useContext, useRef } from 'react';
 import type { StoreApi } from 'zustand';
 import { useStore } from 'zustand';
 
@@ -51,7 +45,7 @@ export const createContext = <S extends StoreApi<unknown>>() => {
     if (!store) {
       throw new Error('Seems like you have not used zustand provider as an ancestor.');
     }
-    return useMemo<WithoutCallSignature<S>>(() => ({ ...store }), [store]);
+    return store as WithoutCallSignature<S>;
   };
 
   return {
