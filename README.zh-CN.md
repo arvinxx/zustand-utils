@@ -49,7 +49,7 @@ zustand v4 中废弃的 `createContext` 的替代方法。（详情： [#1276](h
 
 ```tsx
 import create from 'zustand'
-import createContext from 'zustand/context'
+import { createContext } from 'zustand-utils'
 
 const { Provider, useStore } = createContext()
 
@@ -77,7 +77,7 @@ const Component = () => {
 
 ```jsx
 import create from 'zustand';
-import createContext from 'zustand/context';
+import { createContext } from 'zustand-utils';
 
 // 最佳实践：你可以将下面的 createContext() 和 createStore 移动到一个单独的文件（store.js）中，并在需要的地方导入 Provider，useStore。
 const { Provider, useStore } = createContext();
@@ -130,7 +130,7 @@ export default function App() {
 
 ```tsx
 import create from 'zustand';
-import createContext from 'zustand/context';
+import { createContext } from 'zustand-utils';
 
 const { Provider, useStore } = createContext();
 

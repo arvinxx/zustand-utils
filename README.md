@@ -49,7 +49,7 @@ A replacement createContext from zustand/context that is deprecated in v4 and wi
 
 ```tsx
 import create from 'zustand'
-import createContext from 'zustand/context'
+import { createContext } from 'zustand-utils'
 
 const { Provider, useStore } = createContext()
 
@@ -77,7 +77,7 @@ const Component = () => {
 
 ```jsx
 import create from "zustand";
-import createContext from "zustand/context";
+import { createContext } from 'zustand-utils';
 
 // Best practice: You can move the below createContext() and createStore to a separate file(store.js) and import the Provider, useStore here/wherever you need.
 
@@ -131,7 +131,7 @@ export default function App() {
 
 ```tsx
 import create from 'zustand';
-import createContext from 'zustand/context';
+import { createContext } from 'zustand-utils';
 
 const { Provider, useStore } = createContext();
 
