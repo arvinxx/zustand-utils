@@ -123,7 +123,7 @@ export default function App() {
 }
 ```
 
-### createContext usage with initialization from props
+#### createContext usage with initialization from props
 
 > Migration from [zustand-v3-create-context.md](https://github.com/pmndrs/zustand/blob/b857d5e79f41e2e2c756448eca466ac31abdabc3/docs/previous-versions/zustand-v3-create-context.md)
 
@@ -147,6 +147,86 @@ export default function App({ initialBears }) {
     </Provider>
   );
 }
+```
+
+#### Refactor app store to a component store with createContext
+
+a most usage of createContext is refactoring an app to a component.
+
+Here's progress:
+
+1. Create an App without context :
+
+```ts
+// store.ts
+import create from 'zustand';
+
+export const useStore = create((set) => ({
+  bears: 0,
+  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+  removeAllBears: () => set({ bears: 0 }),
+}));
+```
+
+components in app use `useStore` to consume store:
+
+```tsx
+// Component.ts
+
+import { useStore } from './store';
+
+const ButtonChild = () => {
+  const state = useStore();
+  return (
+    <div>
+      {state.bears}
+      <button
+        onClick={() => {
+          state.increasePopulation();
+        }}
+      >
+        +
+      </button>
+    </div>
+  );
+};
+export default ButtonChild;
+```
+
+2. Oneday, the app needs to be converted to a component(like [react-flow](https://reactflow.dev/)) to reuse in another app.
+
+with `createContext`, what needs to do is just wrapper the App with `createContext`, and don't need to refactor any code in children components.
+
+It become a component, can be used in any other app.
+
+```diff
+// store.ts
+import create from "zustand";
+
++ const createStore = ()=> create((set) => ({
+- export const useStore =  create((set) => ({
+    bears: 0,
+    increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+    removeAllBears: () => set({ bears: 0 })
+  }));
+
++ const { Provider, useStore } = createContext();
+
++ export { Provider, useStore ,  createStore }
+```
+
+```tsx
+// Wrapper.tsx
+
+import { createStore, Provider } from './store';
+
+const Wrapper = () => {
+  return (
+    <Provider createStore={createStore}>
+      <ButtonChild />
+    </Provider>
+  );
+};
 ```
 
 ## License
