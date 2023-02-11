@@ -67,6 +67,29 @@ const Component = () => {
   ...
 ```
 
+### optionalDevtools
+
+a wrapper for zustand devtools middleware that with config to enable devtools.(Discussion: [#1266](https://github.com/pmndrs/zustand/discussions/1266))
+
+```ts
+import { optionalDevtools } from 'zustand-utils';
+
+type Store = {
+  foo: string;
+};
+
+export const createStore = (withDevtools?: boolean) => {
+  // can enable or controlled by config
+  const devtools = optionalDevtools(withDevtools);
+  // use as zustands/middleware devtools
+  return create<Store>()(devtools((set) => ({})));
+};
+```
+
+What's improve?
+
+`zustands/middleware`'s `devtools` have an option `enable`, but it doesn't work if set to false in development.
+
 ## Usage
 
 ### createContext
