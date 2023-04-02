@@ -226,6 +226,50 @@ const Wrapper = () => {
 
 这样它就变成了一个组件，可以被其他任何应用消费。
 
+好的，以下是 `createStoreUpdater` 的说明文档：
+
+## createStoreUpdater
+
+`createStoreUpdater` 是一个用于更新 Store 中指定 key 的值的函数。
+
+### 参数
+
+`createStoreUpdater` 接收一个 `StoreApi` 对象作为参数，该对象包含了一些操作 Store 的方法，如 `getState`、`setState`、`subscribe` 和 `destroy`。
+
+`createStoreUpdater` 返回一个函数，该函数接收以下参数：
+
+- `key`：需要更新的 Store 中的 key；
+- `value`：需要更新的值；
+- `deps`：依赖项数组，默认为 `[value]`；
+- `setStoreState`：一个可选的回调函数，用于更新 Store 状态，默认为 `storeApi.setState`。
+
+### 返回值
+
+`createStoreUpdater` 返回一个函数，该函数用于更新 Store 中指定 key 的值。
+
+### 示例
+
+```typescript
+import { createStoreUpdater } from 'path/to/createStoreUpdater';
+import { useStore } from 'path/to/useStore';
+
+interface User {
+  name: string;
+  age: number;
+}
+
+const storeApi = useStore<User>({ name: '', age: 0 });
+const updateUser = createStoreUpdater(storeApi);
+
+// 更新 name
+updateUser('name', 'John Doe');
+
+// 更新 age
+updateUser('age', 18);
+```
+
+在上面的示例中，我们首先使用 `useStore` 创建了一个 Store，然后使用 `createStoreUpdater` 创建了一个更新器 `updateUser`，最后通过调用 `updateUser` 来更新 Store 中的 `name` 和 `age`。
+
 ## License
 
 [MIT](./LICENSE)
