@@ -1,5 +1,15 @@
 # Changelog
 
+# [1.2.0](https://github.com/arvinxx/zustand-utils/compare/v1.1.2...v1.2.0) (2023-04-02)
+
+### ✨ Features
+
+- add createStoreUpdater hooks ([13eaf9d](https://github.com/arvinxx/zustand-utils/commit/13eaf9d))
+
+### 🐛 Bug Fixes
+
+- fix error when working with nextjs ssr ([28f746b](https://github.com/arvinxx/zustand-utils/commit/28f746b))
+
 ## [1.1.2](https://github.com/arvinxx/zustand-utils/compare/v1.1.1...v1.1.2) (2023-02-11)
 
 ## [1.1.1](https://github.com/arvinxx/zustand-utils/compare/v1.1.0...v1.1.1) (2023-02-10)
