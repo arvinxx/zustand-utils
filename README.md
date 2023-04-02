@@ -250,6 +250,48 @@ const Wrapper = () => {
 
 It become a component, can be used in any other app.
 
+# createStoreUpdater
+
+`createStoreUpdater` is a function for updating the value of a specified key in the Store.
+
+## Parameters
+
+`createStoreUpdater` takes a `StoreApi` object as its parameter, which contains methods for manipulating the Store, such as `getState`, `setState`, `subscribe`, and `destroy`.
+
+`createStoreUpdater` returns a function that takes the following parameters:
+
+- `key`: the key in the Store that needs to be updated;
+- `value`: the value that needs to be updated;
+- `deps`: an array of dependencies, defaults to `[value]`;
+- `setStoreState`: an optional callback function for updating the Store state, defaults to `storeApi.setState`.
+
+## Return Value
+
+`createStoreUpdater` returns a function that updates the value of the specified key in the Store.
+
+## Example
+
+```typescript
+import { createStoreUpdater } from 'path/to/createStoreUpdater';
+import { useStore } from 'path/to/useStore';
+
+interface User {
+  name: string;
+  age: number;
+}
+
+const storeApi = useStore<User>({ name: '', age: 0 });
+const updateUser = createStoreUpdater(storeApi);
+
+// Update name
+updateUser('name', 'John Doe');
+
+// Update age
+updateUser('age', 18);
+```
+
+In the example above, we first create a Store using `useStore`, then create an updater `updateUser` using `createStoreUpdater`, and finally update the `name` and `age` in the Store by calling `updateUser`.
+
 ## License
 
 [MIT](./LICENSE)

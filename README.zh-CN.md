@@ -226,8 +226,6 @@ const Wrapper = () => {
 
 这样它就变成了一个组件，可以被其他任何应用消费。
 
-好的，以下是 `createStoreUpdater` 的说明文档：
-
 ## createStoreUpdater
 
 `createStoreUpdater` 是一个用于更新 Store 中指定 key 的值的函数。
