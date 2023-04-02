@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.1](https://github.com/arvinxx/zustand-utils/compare/v1.2.0...v1.2.1) (2023-04-02)
+
+### 🐛 Bug Fixes
+
+- fix main export error ([b5170c8](https://github.com/arvinxx/zustand-utils/commit/b5170c8))
+
 # [1.2.0](https://github.com/arvinxx/zustand-utils/compare/v1.1.2...v1.2.0) (2023-04-02)
 
 ### ✨ Features
