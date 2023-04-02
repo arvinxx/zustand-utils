@@ -20,7 +20,8 @@
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "files": [
-    "es"
+    "es",
+    "lib"
   ],
   "scripts": {
     "build": "father build",
