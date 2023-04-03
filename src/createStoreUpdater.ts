@@ -1,9 +1,13 @@
 import { useEffect } from 'react';
 import { StoreApi } from 'zustand';
 
+declare type WithoutCallSignature<T> = {
+  [K in keyof T]: T[K];
+};
+
 // 定义一个函数，用于创建 Store 更新器
 export const createStoreUpdater =
-  <T>(storeApi: StoreApi<T>) =>
+  <T>(storeApi: WithoutCallSignature<StoreApi<T>>) =>
   // 该函数接收三个参数：key，value 和 deps
   // key：需要更新的 Store 中的 key
   // value：需要更新的值
