@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.2](https://github.com/arvinxx/zustand-utils/compare/v1.2.1...v1.2.2) (2023-04-03)
+
+### 🐛 Bug Fixes
+
+- fix storeApi type error ([a295b97](https://github.com/arvinxx/zustand-utils/commit/a295b97))
+
 ## [1.2.1](https://github.com/arvinxx/zustand-utils/compare/v1.2.0...v1.2.1) (2023-04-02)
 
 ### 🐛 Bug Fixes
