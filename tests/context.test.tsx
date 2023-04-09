@@ -7,6 +7,7 @@ import {
   useEffect,
   useState,
 } from 'react';
+import { vi } from 'vitest';
 import type { StoreApi } from 'zustand';
 import { create } from 'zustand';
 import { createContext } from 'zustand-utils';
@@ -122,7 +123,7 @@ it('uses context store api', async () => {
 });
 
 it('throws error when not using provider', async () => {
-  console.error = jest.fn();
+  console.error = vi.fn();
 
   class ErrorBoundary extends ClassComponent<
     { children?: ReactNode | undefined },
@@ -157,7 +158,7 @@ it('throws error when not using provider', async () => {
 });
 
 it('throws error useStoreApi when not using provider', async () => {
-  console.error = jest.fn();
+  console.error = vi.fn();
 
   class ErrorBoundary extends ClassComponent<
     { children?: ReactNode | undefined },
