@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.4](https://github.com/arvinxx/zustand-utils/compare/v1.2.3...v1.2.4) (2023-06-14)
+
+### 🐛 Bug Fixes
+
+- Fix UseStoreUpdater type ([94ee56f](https://github.com/arvinxx/zustand-utils/commit/94ee56f))
+
 ## [1.2.3](https://github.com/arvinxx/zustand-utils/compare/v1.2.2...v1.2.3) (2023-06-14)
 
 ### 🐛 Bug Fixes
