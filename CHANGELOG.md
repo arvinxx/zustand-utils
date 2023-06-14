@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.3](https://github.com/arvinxx/zustand-utils/compare/v1.2.2...v1.2.3) (2023-06-14)
+
+### 🐛 Bug Fixes
+
+- 优化 createStoreUpdater 在 devtools 中的 action 名称 ([b33e14c](https://github.com/arvinxx/zustand-utils/commit/b33e14c))
+
 ## [1.2.2](https://github.com/arvinxx/zustand-utils/compare/v1.2.1...v1.2.2) (2023-04-03)
 
 ### 🐛 Bug Fixes
