@@ -15,7 +15,7 @@ declare type WithoutCallSignature<T> = {
 export type UseStoreUpdater<T> = (
   key: keyof T,
   value: any,
-  deps: any[],
+  deps?: any[],
   setStateFn?: (state: T) => void,
 ) => void;
 
