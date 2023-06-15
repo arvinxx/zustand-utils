@@ -40,7 +40,11 @@ describe('createStoreUpdater', () => {
 
     // 检查 setState 是否被正确调用
     expect(setState).toHaveBeenCalledTimes(1);
-    // expect(setState).toHaveBeenCalledWith({ [key]: value });
+
+    expect(setState).toHaveBeenCalledWith({ foo: 'bar' }, false, {
+      type: '💭 useStoreUpdater / foo',
+      payload: 'bar',
+    });
 
     // 检查返回值是否为 undefined
     expect(result.current).toBeUndefined();
