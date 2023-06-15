@@ -31,8 +31,8 @@ export const createStoreUpdater =
       if (typeof value !== 'undefined') {
         // @ts-ignore
         setState({ [key]: value }, false, {
-          type: `💭 useStoreUpdater/ ${key as string}`,
-          payload: { value },
+          type: `💭 useStoreUpdater / ${key as string}`,
+          payload: value,
         });
       }
     }, deps);
