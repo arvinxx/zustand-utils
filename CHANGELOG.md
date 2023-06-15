@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;1.3.0](https://github.com/arvinxx/zustand-utils/compare/v1.2.5...v1.3.0)
+
+<sup>Released on **2023-06-15**</sup>
+
+#### ✨ Features
+
+- 增加 storeApiSetState.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- 增加 storeApiSetState ([f9df32a](https://github.com/arvinxx/zustand-utils/commit/f9df32a))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [1.2.5](https://github.com/arvinxx/zustand-utils/compare/v1.2.4...v1.2.5) (2023-06-15)
 
 ### 🐛 Bug Fixes
