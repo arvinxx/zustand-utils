@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;1.3.1](https://github.com/arvinxx/zustand-utils/compare/v1.3.0...v1.3.1)
+
+<sup>Released on **2023-08-07**</sup>
+
+#### 🐛 Bug Fixes
+
+- Migration to zustand v4.4.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Migration to zustand v4.4, closes [#1](https://github.com/arvinxx/zustand-utils/issues/1) ([ccdd5e0](https://github.com/arvinxx/zustand-utils/commit/ccdd5e0))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;1.3.0](https://github.com/arvinxx/zustand-utils/compare/v1.2.5...v1.3.0)
 
 <sup>Released on **2023-06-15**</sup>
