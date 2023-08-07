@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
-import { createContext as reactCreateContext, createElement, useContext, useRef } from 'react';
+import { createElement, createContext as reactCreateContext, useContext, useRef } from 'react';
 import type { StoreApi } from 'zustand';
-import { useStore } from 'zustand';
+import { useStoreWithEqualityFn } from 'zustand/traditional';
 
 export type UseContextStore<S extends StoreApi<unknown>> = {
   (): ExtractState<S>;
@@ -37,7 +37,11 @@ export const createContext = <S extends StoreApi<unknown>>() => {
     if (!store) {
       throw new Error('Seems like you have not used zustand provider as an ancestor.');
     }
-    return useStore(store, selector as (state: ExtractState<S>) => StateSlice, equalityFn);
+    return useStoreWithEqualityFn(
+      store,
+      selector as (state: ExtractState<S>) => StateSlice,
+      equalityFn,
+    );
   };
 
   const useStoreApi = () => {
