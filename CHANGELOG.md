@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;1.3.2](https://github.com/arvinxx/zustand-utils/compare/v1.3.1...v1.3.2)
+
+<sup>Released on **2024-01-21**</sup>
+
+#### 🐛 Bug Fixes
+
+- Reduce createStoreUpdater update time.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Reduce createStoreUpdater update time ([53d2c2c](https://github.com/arvinxx/zustand-utils/commit/53d2c2c))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;1.3.1](https://github.com/arvinxx/zustand-utils/compare/v1.3.0...v1.3.1)
 
 <sup>Released on **2023-08-07**</sup>
