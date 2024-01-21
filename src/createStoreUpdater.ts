@@ -1,3 +1,4 @@
+import isEqual from 'fast-deep-equal';
 import { useEffect } from 'react';
 import { StoreApi } from 'zustand';
 
@@ -29,6 +30,9 @@ export const createStoreUpdater =
     useEffect(() => {
       // 如果 value 不为 undefined，就更新 Store 中的指定 key 的值
       if (typeof value !== 'undefined') {
+        const state = storeApi.getState?.();
+        if (isEqual(state?.[key], value)) return;
+
         // @ts-ignore
         setState({ [key]: value }, false, {
           type: `💭 useStoreUpdater / ${key as string}`,
