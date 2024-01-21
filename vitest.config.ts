@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
@@ -6,8 +7,8 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     alias: {
-      '@': './src',
-      'zustand-utils': './src',
+      'zustand-utils': path.join(__dirname, './src'),
+      '@': path.join(__dirname, './src'),
     },
   },
 });
