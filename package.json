@@ -93,8 +93,8 @@
     "zustand": "^4.4.1"
   },
   "peerDependencies": {
-    "react": ">=16.8",
-    "zustand": ">=4.4.1"
+    "react": ">=18",
+    "zustand": ">=5.0.2"
   },
   "publishConfig": {
     "access": "public",
