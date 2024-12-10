@@ -41,7 +41,7 @@ export const createContext = <S extends StoreApi<unknown>>() => {
     equalityFn?: (a: StateSlice, b: StateSlice) => boolean,
   ) => {
     // todo: TS desfinition
-    // https://github.com/pmndrs/zustand/blob/v4.4.0/src/traditional.ts#L87
+    // https://github.com/pmndrs/zustand/blob/v4.0.0/src/react.ts#L68-L71
     return (useStoreApi() as unknown as any)(selector, equalityFn);
   };
 
