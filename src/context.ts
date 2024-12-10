@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 import { createElement, createContext as reactCreateContext, useContext, useRef } from 'react';
 import type { StoreApi } from 'zustand';
-import { useStoreWithEqualityFn } from 'zustand/traditional';
 
 export type UseContextStore<S extends StoreApi<unknown>> = {
   (): ExtractState<S>;
@@ -29,27 +28,21 @@ export const createContext = <S extends StoreApi<unknown>>() => {
     return createElement(ZustandContext.Provider, { value: storeRef.current }, children);
   };
 
-  const useContextStore: UseContextStore<S> = <StateSlice = ExtractState<S>>(
-    selector?: (state: ExtractState<S>) => StateSlice,
-    equalityFn?: (a: StateSlice, b: StateSlice) => boolean,
-  ) => {
-    const store = useContext(ZustandContext);
-    if (!store) {
-      throw new Error('Seems like you have not used zustand provider as an ancestor.');
-    }
-    return useStoreWithEqualityFn(
-      store,
-      selector as (state: ExtractState<S>) => StateSlice,
-      equalityFn,
-    );
-  };
-
   const useStoreApi = () => {
     const store = useContext(ZustandContext);
     if (!store) {
       throw new Error('Seems like you have not used zustand provider as an ancestor.');
     }
     return store as WithoutCallSignature<S>;
+  };
+
+  const useContextStore: UseContextStore<S> = <StateSlice = ExtractState<S>>(
+    selector?: (state: ExtractState<S>) => StateSlice,
+    equalityFn?: (a: StateSlice, b: StateSlice) => boolean,
+  ) => {
+    // todo: TS desfinition
+    // https://github.com/pmndrs/zustand/blob/v4.4.0/src/traditional.ts#L87
+    return (useStoreApi() as unknown as any)(selector, equalityFn);
   };
 
   return {
