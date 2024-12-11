@@ -94,7 +94,7 @@
   },
   "peerDependencies": {
     "react": ">=16.8",
-    "zustand": ">=4.0.0"
+    "zustand": ">=4.4.1"
   },
   "publishConfig": {
     "access": "public",
