@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 import { createElement, createContext as reactCreateContext, useContext, useRef } from 'react';
 import type { StoreApi } from 'zustand';
-import { useStoreWithEqualityFn } from 'zustand/traditional';
 
 export type UseContextStore<S extends StoreApi<unknown>> = {
   (): ExtractState<S>;
@@ -41,17 +40,9 @@ export const createContext = <S extends StoreApi<unknown>>() => {
     selector?: (state: ExtractState<S>) => StateSlice,
     equalityFn?: (a: StateSlice, b: StateSlice) => boolean,
   ) => {
-    const store = useStoreApi();
-
-    // \\\\\\\\\\ v5 \\\\\\\\\\
-    if (typeof equalityFn === 'function') {
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      return useStoreWithEqualityFn(store, selector as any, equalityFn);
-    }
-
-    // \\\\\\\\\\ v4 \\\\\\\\\\
-    // https://github.com/pmndrs/zustand/blob/v4.4.0/src/react.ts#L103-L106
-    return (store as unknown as any)(selector, equalityFn);
+    // todo: TS desfinition
+    // https://github.com/pmndrs/zustand/blob/v4.0.0/src/react.ts#L68-L71
+    return (useStoreApi() as unknown as any)(selector, equalityFn);
   };
 
   return {
