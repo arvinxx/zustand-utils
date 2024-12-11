@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 import { createElement, createContext as reactCreateContext, useContext, useRef } from 'react';
 import type { StoreApi } from 'zustand';
+import { shallow } from 'zustand/shallow';
+import { useStoreWithEqualityFn } from 'zustand/traditional';
 
 export type UseContextStore<S extends StoreApi<unknown>> = {
   (): ExtractState<S>;
@@ -11,11 +13,16 @@ type ExtractState<S> = S extends { getState: () => infer T } ? T : never;
 
 type WithoutCallSignature<T> = { [K in keyof T]: T[K] };
 
+interface CreateContextParams {
+  equalityFn?: <U>(a: U, b: U) => boolean;
+}
+
 /**
  * create context for individual App
  * mostly use for component
  */
-export const createContext = <S extends StoreApi<unknown>>() => {
+export const createContext = <S extends StoreApi<unknown>>(params: CreateContextParams = {}) => {
+  const defaultEqualityFn = params.equalityFn || shallow;
   const ZustandContext = reactCreateContext<S | undefined>(undefined);
 
   const Provider = ({ createStore, children }: { createStore: () => S; children: ReactNode }) => {
@@ -38,11 +45,15 @@ export const createContext = <S extends StoreApi<unknown>>() => {
 
   const useContextStore: UseContextStore<S> = <StateSlice = ExtractState<S>>(
     selector?: (state: ExtractState<S>) => StateSlice,
-    equalityFn?: (a: StateSlice, b: StateSlice) => boolean,
+    equalityFn = defaultEqualityFn,
   ) => {
-    // todo: TS desfinition
-    // https://github.com/pmndrs/zustand/blob/v4.0.0/src/react.ts#L68-L71
-    return (useStoreApi() as unknown as any)(selector, equalityFn);
+    const store = useStoreApi();
+
+    return useStoreWithEqualityFn(
+      store,
+      selector as (state: ExtractState<S>) => StateSlice,
+      equalityFn,
+    );
   };
 
   return {
