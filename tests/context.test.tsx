@@ -104,7 +104,8 @@ it('uses context store api', async () => {
     }, [storeApi]);
     useEffect(() => {
       if (count === 1) {
-        storeApi.destroy();
+        const initialState = storeApi.getInitialState();
+        storeApi.setState(initialState);
         storeApi.setState({ count: storeApi.getState().count + 1 });
       }
     }, [storeApi, count]);
