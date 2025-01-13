@@ -1,5 +1,34 @@
 # Changelog
 
+## [Version&nbsp;2.0.0](https://github.com/arvinxx/zustand-utils/compare/v1.3.2...v2.0.0)
+
+<sup>Released on **2025-01-13**</sup>
+
+#### ✨ Features
+
+- Bump peer deps react>=19 and zustand >=5.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Bump peer deps react>=19 and zustand >=5, closes [#4](https://github.com/arvinxx/zustand-utils/issues/4) ([a3f95ac](https://github.com/arvinxx/zustand-utils/commit/a3f95ac))
+
+</details>
+
+#### 💥 BREAKING CHANGES
+
+- react>=19 and zustand >=5
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;1.3.2](https://github.com/arvinxx/zustand-utils/compare/v1.3.1...v1.3.2)
 
 <sup>Released on **2024-01-21**</sup>
