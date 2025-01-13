@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;2.1.0](https://github.com/arvinxx/zustand-utils/compare/v2.0.0...v2.1.0)
+
+<sup>Released on **2025-01-13**</sup>
+
+#### ✨ Features
+
+- CreateContext support for custom defaultEqualityFn.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- CreateContext support for custom defaultEqualityFn, closes [#3](https://github.com/arvinxx/zustand-utils/issues/3) ([4b71b99](https://github.com/arvinxx/zustand-utils/commit/4b71b99))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;2.0.0](https://github.com/arvinxx/zustand-utils/compare/v1.3.2...v2.0.0)
 
 <sup>Released on **2025-01-13**</sup>
