@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;2.1.1](https://github.com/arvinxx/zustand-utils/compare/v2.1.0...v2.1.1)
+
+<sup>Released on **2025-09-29**</sup>
+
+#### 🐛 Bug Fixes
+
+- **types**: Improved types for `createStoreUpdater`.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **types**: Improved types for `createStoreUpdater`, closes [#5](https://github.com/arvinxx/zustand-utils/issues/5) ([4c6274d](https://github.com/arvinxx/zustand-utils/commit/4c6274d))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;2.1.0](https://github.com/arvinxx/zustand-utils/compare/v2.0.0...v2.1.0)
 
 <sup>Released on **2025-01-13**</sup>
