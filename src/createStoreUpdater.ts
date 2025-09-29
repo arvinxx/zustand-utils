@@ -13,17 +13,22 @@ declare type WithoutCallSignature<T> = {
  *  @param  deps：依赖项数组，默认为 [value]
  *  @param  setStoreState：一个可选的回调函数，用于更新 Store 状态
  */
-export type UseStoreUpdater<T> = (
-  key: keyof T,
-  value: any,
+export type UseStoreUpdater<T> = <Key extends keyof T>(
+  key: Key,
+  value: T[Key],
   deps?: any[],
-  setStateFn?: (state: T) => void,
+  setStateFn?: StoreApi<T>['setState'],
 ) => void;
 
 // 定义一个函数，用于创建 Store 更新器
 export const createStoreUpdater =
   <T>(storeApi: WithoutCallSignature<StoreApi<T>>): UseStoreUpdater<T> =>
-  (key, value, deps = [value], setStateFn) => {
+  <Key extends keyof T>(
+    key: Key,
+    value: T[Key],
+    deps = [value],
+    setStateFn?: StoreApi<T>['setState'],
+  ) => {
     // 获取 Store 更新函数
     const setState = setStateFn ?? storeApi.setState;
     // 使用 useEffect 监听依赖项变化
@@ -35,7 +40,7 @@ export const createStoreUpdater =
 
         // @ts-ignore
         setState({ [key]: value }, false, {
-          type: `💭 useStoreUpdater / ${key as string}`,
+          type: `💭 useStoreUpdater / ${key.toString()}`,
           payload: value,
         });
       }
